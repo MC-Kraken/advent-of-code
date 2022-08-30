@@ -5,7 +5,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Year_2015</RootNamespace>
+        <RootNamespace>Year2015</RootNamespace>
     </PropertyGroup>
 
 </Project>
