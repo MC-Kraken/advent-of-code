@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Year_2015", "Year_2015\Year_2015.csproj", "{8CEE65FB-5BF5-4ACB-B7E2-5F28D7E32543}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Year2015", "Year2015\Year2015.csproj", "{8CEE65FB-5BF5-4ACB-B7E2-5F28D7E32543}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
