@@ -25,29 +25,74 @@ public class Day3
         
         
         var coordinates = new HashSet<Coordinate> { new() };
-        var coordinate = new Coordinate();
+        var coordinateSanta = new Coordinate();
+        var coordinateRoboSanta = new Coordinate();
+        var count = 1;
         
         foreach (var move in text)
         {
             
             switch (move)
             {
+                
                 case '<' :
-                    coordinate.Y--;
+                    if (count % 2 == 0)
+                    {
+                        coordinateSanta.Y--; 
+                    }
+                    else
+                    { 
+                        coordinateRoboSanta.Y--;
+                    }
                     break;
                 case '>' :
-                    coordinate.Y++;
+                    if (count % 2 == 0)
+                    {
+                        coordinateSanta.Y++; 
+                    }
+                    else
+                    { 
+                        coordinateRoboSanta.Y++;
+                    }
                     break;
                 case '^' :
-                    coordinate.X++;
+                    if (count % 2 == 0)
+                    {
+                        coordinateSanta.X++; 
+                    }
+                    else
+                    { 
+                        coordinateRoboSanta.X++;
+                    }
                     break;
                 case 'v' :
-                    coordinate.X--;
+                    if (count % 2 == 0)
+                    {
+                        coordinateSanta.X--; 
+                    }
+                    else
+                    { 
+                        coordinateRoboSanta.X--;
+                    }
                     break;
                     
             }
 
-            var updatedCoordinate = new Coordinate(coordinate.X, coordinate.Y);
+            var updatedCoordinate = new Coordinate();
+            
+            if (count % 2 == 0)
+            {
+                updatedCoordinate.X = coordinateSanta.X;
+                updatedCoordinate.Y = coordinateSanta.Y;
+            }
+            else
+            {
+                updatedCoordinate.X = coordinateRoboSanta.X;
+                updatedCoordinate.Y = coordinateRoboSanta.Y;
+            }
+            
+            
+            count++; 
             if(!coordinates.Any(c => c.X == updatedCoordinate.X && c.Y == updatedCoordinate.Y))
             {
                 coordinates.Add(updatedCoordinate);   
