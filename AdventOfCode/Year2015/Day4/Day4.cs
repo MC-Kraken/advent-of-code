@@ -25,7 +25,6 @@ public class Day4
             
             if (convertedHash.StartsWith("00000"))
             {
-                
                 flag = false;
                 Console.WriteLine("you did it!!! Here's the answer: " + number);
             }
@@ -34,7 +33,6 @@ public class Day4
                 number++;
             }
         }
-
         
         Console.WriteLine(number);
     }
