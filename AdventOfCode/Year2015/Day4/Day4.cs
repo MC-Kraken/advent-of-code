@@ -23,7 +23,7 @@ public class Day4
             Console.WriteLine("first five: " + convertedHash[0] + convertedHash[1] + convertedHash[2] + convertedHash[3] +
                               convertedHash[4]);
             
-            if (convertedHash.StartsWith("00000"))
+            if (convertedHash.StartsWith("000000"))
             {
                 flag = false;
                 Console.WriteLine("you did it!!! Here's the answer: " + number);
