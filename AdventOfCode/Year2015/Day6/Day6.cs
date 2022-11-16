@@ -5,7 +5,8 @@ namespace Year2015.Day6;
 public class Day6
 {
     private static Dictionary<string, bool> Lights = new Dictionary<string, bool>();
-    public static void lightshow()
+    private static Dictionary<string, int> LightsPart2 = new Dictionary<string, int>();
+    public static void Lightshow()
     {
         var currentDirectory = Directory.GetCurrentDirectory().Split("/bin").First();
         var filePath = Path.Combine(currentDirectory, "Day6/input.txt");
@@ -50,7 +51,8 @@ public class Day6
         }
         Console.WriteLine(lightsOn);
     }
-
+    
+    
     private static void LoopThrough(string startCoord, string endCoord, string instruction)
     {
         var startX = int.Parse(startCoord.Split(",")[0]);
@@ -97,6 +99,97 @@ public class Day6
         }
 
     }
+    public static void LightshowPart2()
+    {
+        var currentDirectory = Directory.GetCurrentDirectory().Split("/bin").First();
+        var filePath = Path.Combine(currentDirectory, "Day6/input.txt");
+        var text = File.ReadAllLines(filePath);
+
+            
+        string? startingLightCoord;
+        string? endingLightCoord;
+            
+
+            foreach (var instruction in text)
+        {
+            var light = instruction.Split(" ");
+            if (instruction.Contains("on"))
+            {
+                var start = light[2];
+                var end = light[4];
+                LoopThroughPart2(start, end, "on");
+
+            }
+            else if (instruction.Contains("off"))
+            {
+                var start = light[2];
+                var end = light[4];
+                LoopThroughPart2(start, end, "off");
+            }
+            else if (instruction.Contains("toggle"))
+            {
+                var start = light[1];
+                var end = light[3];
+                LoopThroughPart2(start, end, "toggle");
+            }
+        }
+
+        var lightBrightness = 0;
+            foreach (var light in LightsPart2)
+            {
+                lightBrightness += light.Value;
+            }
+        Console.WriteLine(lightBrightness);
+    }
     
+    private static void LoopThroughPart2(string startCoord, string endCoord, string instruction)
+    {
+        var startX = int.Parse(startCoord.Split(",")[0]);
+        var startY = int.Parse(startCoord.Split(",")[1]);
+        var endX = int.Parse(endCoord.Split(",")[0]);
+        var endY = int.Parse(endCoord.Split(",")[1]);
+
+        for (var i = startX; i <= endX; i++)
+        {
+            for (var j = startY; j <= endY; j++)
+            {
+                var coord = i + "," + j;
+                if (LightsPart2.ContainsKey(coord))
+                {
+                    switch(instruction)
+                    {
+                        case "on":
+                            LightsPart2[coord] = LightsPart2[coord]+=1;
+                            break;
+                        case "off":
+                            if (LightsPart2[coord] != 0)
+                            {
+                                LightsPart2[coord] = LightsPart2[coord]-=1;
+                            }
+                            break;
+                        case "toggle":
+                            LightsPart2[coord] = LightsPart2[coord]+=2;
+                            break;
+                    }
+                }
+                else
+                {
+                    switch(instruction)
+                    {
+                        case "on":
+                            LightsPart2.Add(coord, 1);
+                            break;
+                        case "off":
+                            LightsPart2.Add(coord, 0);
+                            break;
+                        case "toggle":
+                            LightsPart2.Add(coord, 2);
+                            break;
+                    }
+                }
+            }
+        }
+
+    }
     
 }
