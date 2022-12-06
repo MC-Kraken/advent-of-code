@@ -10,11 +10,9 @@ public class Day6
         var currentDirectory = Directory.GetCurrentDirectory().Split("/bin").First();
         var filePath = Path.Combine(currentDirectory, "Day6/input.txt");
         var text = File.ReadAllLines(filePath);
-
         
         string? startingLightCoord;
         string? endingLightCoord;
-        
 
         foreach (var instruction in text)
         {
