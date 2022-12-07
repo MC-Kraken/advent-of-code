@@ -1,11 +1,11 @@
-namespace Year2022.Day1;
+namespace Year2022.Day6;
 
-public static class Day1
+public static class Day6
 {
     public static void GetMarkerPart1()
     {
         var currentDirectory = Directory.GetCurrentDirectory().Split("/bin").First();
-        var filePath = Path.Combine(currentDirectory, "Day1/input.txt");
+        var filePath = Path.Combine(currentDirectory, "Day6/input.txt");
         var text = File.ReadAllText(filePath);
 
         var marker = 0;
