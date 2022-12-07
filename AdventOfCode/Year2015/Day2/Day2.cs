@@ -28,7 +28,6 @@ public class Day2
             var surfaceArea = a + b + c + smallestSide;
             
             totalSquareFeet += surfaceArea;
-            
         }
         Console.WriteLine(totalSquareFeet);
         return totalSquareFeet;

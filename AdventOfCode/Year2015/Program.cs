@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Year2015.Day5;
+using Year2015.Day7;
 
 // Day1.GetSantaFloor();
-Day5.GetVowelsPart2();
+Day7.DoBitwiseStuff();
